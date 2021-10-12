@@ -15,8 +15,7 @@ jobs:
       run: |
         commit_nr=$(git rev-parse --short HEAD:linux)
         wget -P ~/Downloads https://github.com/danixas/linux/archive/$commit_nr.zip
-        full_nr=$(git rev-parse HEAD)
+        full_nr=$(git rev-parse HEAD:linux)
         sudo apt-get install unzip
-        unzip ~/Downloads/$full_nr.zip -d ~/Downloads
-        ./build-linux.sh ~/Downloads/$full_nr tinyconfig
-
+        unzip ~/Downloads/$commit_nr.zip -d ~/Downloads
+        ./build-linux.sh ~/Downloads/linux-$full_nr tinyconfig
