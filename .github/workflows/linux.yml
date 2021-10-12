@@ -1,14 +1,10 @@
 
-name: CSI2115 Linux kernel
+name: linux.yml
 
 on: push
 
-env:
-  BUILD_TYPE: Debug
-  LAST_NR: a
-
 jobs:
-  linux:
+  build:
     runs-on: ubuntu-20.04
 
     steps:
@@ -23,5 +19,4 @@ jobs:
         sudo apt-get install unzip
         unzip ~/Downloads/full_nr.zip -d ~/Downloads
         ./build-linux.sh ~/Downloads/full_nr tinyconfig
-      env: 
-        LAST_NR: $commit_nr
+
