@@ -20,5 +20,6 @@ jobs:
         wget -P ~/Downloads https://github.com/danixas/linux/archive/$commit_nr.zip
         full_nr=$(git rev-parse HEAD:linux)
         sudo apt-get install unzip
-        unzip ~/Downloads/$commit_nr.zip -d ~/Downloads
+        sudo apt install gcc-8
+        unzip -q ~/Downloads/$commit_nr.zip -d ~/Downloads
         ./build-linux.sh ~/Downloads/linux-$full_nr tinyconfig
