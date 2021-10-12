@@ -1,1 +1,30 @@
 
+name: CSI2115 Linux kernel
+
+on: 
+  push:
+    paths: 
+    - 'linux/**'
+
+env:
+  BUILD_TYPE: Debug
+  LAST_NR: ${{''}}
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Build Linux
+      shell: bash
+      run: |
+        commit_nr=$(git rev-parse --short HEAD)
+        wget -P ~/Downloads https://github.com/danixas/linux/archive/$commit_nr.zip
+        full_nr=$(git rev-parse HEAD)
+        sudo apt-get install unzip
+        unzip ~/Downloads/full_nr.zip -d ~/Downloads
+        ./build-linux.sh ~/Downloads/full_nr tinyconfig
+      env: 
+        LAST_NR: $commit_nr
