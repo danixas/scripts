@@ -1,7 +1,7 @@
 
 name: CSI2115 Linux kernel
 
-on: [push]
+on: push
 
 env:
   BUILD_TYPE: Debug
