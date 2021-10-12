@@ -4,7 +4,7 @@ name: test.yml
 on: 
   push:
     paths:
-    - 'test'
+    - 'test/**'
 
 env:
   BUILD_TYPE: Debug
