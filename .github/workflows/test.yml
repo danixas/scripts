@@ -1,9 +1,10 @@
 
-name: linux.yml
+name: test.yml
 
 on: 
   push:
-  - 'test'
+    paths:
+    - 'test'
 
 env:
   BUILD_TYPE: Debug
