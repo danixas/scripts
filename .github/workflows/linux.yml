@@ -1,10 +1,7 @@
 
 name: CSI2115 Linux kernel
 
-on: 
-  push:
-    paths: 
-    - 'linux/**'
+on: [push]
 
 env:
   BUILD_TYPE: Debug
