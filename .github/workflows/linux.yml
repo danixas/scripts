@@ -3,6 +3,9 @@ name: linux.yml
 
 on: push
 
+env:
+  BUILD_TYPE: Debug
+
 jobs:
   build:
     runs-on: ubuntu-20.04
